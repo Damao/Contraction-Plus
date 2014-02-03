@@ -1,0 +1,19 @@
+CACHE MANIFEST
+# 2014-2-2v2
+
+# Explicitly cached 'master entries'.
+CACHE:
+index.html
+js/script.js?v1.6
+js/i18n.js
+css/style.css?v1.6
+js/appframework.min.js
+img/background.jpg
+img/icon-menu.png
+img/NettoOT-Light.otf
+img/6_timer_clock_time-64.png
+
+# Resources that require the user to be online.
+NETWORK:
+*
+

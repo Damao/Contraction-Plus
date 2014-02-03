@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html manifest=".appcache">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<!-- WARNING: for iOS 7, rdivove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	<meta name="viewport" content="initial-scale=1.0,maximum-scale=1,user-scalable=no">
+
+	<meta name="apple-mobile-web-app-title" id="web-app-title" content="">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon" href="img/touch-icon-iphone.png">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css?v1.6"/>
+	<title>宫缩+ Contraction+</title>
+</head>
+<body>
+
+<div class="mod-page">
+	<div id="ucList"></div>
+	<div class="mod-top-bar ui-clearfix">
+		<div id="mod-top-bar__left" class="mod-top-bar__left"><img src="img/6_timer_clock_time-64.png" width="32" height="32"/></div>
+		<div id="mod-top-bar__right" class="mod-top-bar__right"></div>
+		<div id="mod-top-bar__title" class="mod-top-bar__title">宫缩计数器</div>
+	</div>
+	<div id="mod-menu" class="mod-menu">
+		<div id="mod-menu-readme" class="mod-menu__item" onclick="getReadMe();">帮助文档</div>
+		<div id="mod-menu-feedback" class="mod-menu__item">问题反馈</div>
+		<div id="mod-menu-wiki" class="mod-menu__item">宫缩百科</div>
+	</div>
+	<div id="mod-clock" class="mod-clock">
+		<div class="mod-clock__panel">
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(6deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(12deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(18deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(24deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(30deg) translateY(-5px);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(36deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(42deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(48deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(54deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(60deg) translateY(-5px);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(66deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(72deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(78deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(84deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(90deg) translateY(-5px);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(96deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(102deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(108deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(114deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(120deg) translateY(-5px);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(126deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(132deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(138deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(144deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(150deg) translateY(-5px);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(156deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(162deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(168deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(174deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(180deg) translateY(-5px);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(186deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(192deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(198deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(204deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(210deg) translateY(-5px);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(216deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(222deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(228deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(234deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(240deg) translateY(-5px);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(246deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(252deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(258deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(264deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(270deg) translateY(-5px);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(276deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(282deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(288deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(294deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(300deg) translateY(-5px);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(306deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(312deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(318deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(324deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(330deg) translateY(-5px);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(336deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(342deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(348deg);"></div>
+			<div class="mod-clock__sec" style=" -webkit-transform: rotate(354deg);"></div>
+			<div class="mod-clock__sec mod-clock__sec_quarter"
+				 style=" -webkit-transform: rotate(360deg) translateY(-5px);"></div>
+		</div>
+		<div id="mod-clock__digit" class="mod-clock__digit">开始</div>
+		<div id="mod-clock__status" class="mod-clock__status">点击开始</div>
+	</div>
+	<div id="mod-average" class="mod-average ui-margin-bottom_medium">
+		<div id="mod-chart" class="mod-chart ui-margin-bottom_medium">
+			<div id="mod-chart__panel" class="mod-chart__panel"></div>
+			<div id="mod-chart__mark_y" class="mod-chart__mark mod-chart__mark_y ui-color_white-alpha">持续</div>
+			<div id="mod-chart__mark_x" class="mod-chart__mark mod-chart__mark_x ui-color_white-alpha">间隔(m)</div>
+			<div id="mod-chart__range_from" class="mod-chart__range mod-chart__range_from ui-color_white-alpha ui-font-size_x-small"></div>
+			<div id="mod-chart__range_to" class="mod-chart__range mod-chart__range_to ui-color_white-alpha ui-font-size_x-small"></div>
+		</div>
+
+		<div id="mod-average__title" class="mod-average__title">平均值 (30m)</div>
+		<div class="ui-flex ui-color_white ui-font-size_x-large ui-margin-bottom_medium">
+			<div class="mod-average__item mod-average__item-times ui-flex__item"><span
+					class="mod-average__times">0</span> <span
+					class="ui-font-size_x-small ui-color_white-alpha" id="mod-average__time">次</span></div>
+			<div class="mod-average__item ui-flex__item">
+				<div class="ui-font-size_x-small ui-color_white-alpha" id="mod-average__duration">平均时长</div>
+				<span class="mod-average__timeLength">00:00</span></div>
+			<div class="mod-average__item ui-flex__item">
+				<div class="ui-font-size_x-small ui-color_white-alpha" id="mod-average__frequency">平均间隔</div>
+				<span class="mod-average__timeGap">00:00</span></div>
+		</div>
+
+	</div>
+</div>
+<div class="mod-page">
+	<div class="mod-list">
+		<table id="mod-list__table" class="mod-list__table ui-font-size_large"></table>
+	</div>
+</div>
+<div id="mod-mask" class="mod-mask"></div>
+<div id="mod-msg" class="mod-msg ui-font-size_small"></div>
+<div id="mod-readme" class="mod-readme">
+	<div class="ui-padding-medium">
+		<div id="mod-readme-color" class="mod-readme__title">颜色:</div>
+		<div id="mod-readme-color-detail" class="mod-readme__item"><span class="ui-color_default">正常(大于10分钟)</span><br><span class="ui-color_warning">提醒(小于10分钟)</span><br><span class="ui-color_alarm">警告(小于5分钟)</span></div>
+		<div id="mod-readme-unit" class="mod-readme__title">单位:</div>
+		<div id="mod-readme-unit-detail" class="mod-readme__item">分钟 minute 缩写 m <br>秒 second 缩写 s</div>
+		<div id="mod-readme-usage" class="mod-readme__title">操作:</div>
+		<div id="mod-readme-usage-detail" class="mod-readme__item">点击表盘记录开始和结束<br>点击记录删除</div>
+	</div>
+	<div id="mod-readme-close" class="ui-btn" onclick="hideReadMe();">关闭</div>
+</div>
+<script type="text/javascript" src="js/appframework.min.js"></script>
+<script type="text/javascript" src="js/i18n.js"></script>
+<script type="text/javascript" src="js/script.js?v1.6"></script>
+<!--<script src="http://weinre.qq.com/target/target-script-min.js#bigcat"></script>-->
+
+</body>
+</html>
