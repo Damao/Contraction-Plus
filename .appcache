@@ -1,12 +1,12 @@
 CACHE MANIFEST
-# 2014-2-2v2
+# 2014-2-5v2
 
 # Explicitly cached 'master entries'.
 CACHE:
 index.html
-js/script.js?v1.6
+js/script.js?v1.7
 js/i18n.js
-css/style.css?v1.6
+css/style.css?v1.7
 js/appframework.min.js
 img/background.jpg
 img/icon-menu.png

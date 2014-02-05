@@ -1,9 +1,11 @@
-localStorage.ucVersion = "1.6";
+localStorage.ucVersion = "1.7.0";
+
+var isGingerbread = /android 2\.3/i.test(navigator.userAgent);
 
 console.log("navigator.language", navigator.language);
 //language
 var langCurrent = "en";
-if (navigator.language == "zh-CN") {
+if (navigator.language.toLowerCase() == "zh-cn") {
 	langCurrent = "cn";
 }
 function lang(key, ele) {
@@ -16,26 +18,25 @@ function lang(key, ele) {
 
 $("#web-app-title").attr("content", lang("title"));
 //lang("title", "title"); android 2.3 Error: NO_MODIFICATION_ALLOWED_ERR: DOM Exception 7
-lang( "title","#mod-top-bar__title");
-lang("menuReadme","#mod-menu-readme");
-lang("menuFeedback","#mod-menu-feedback");
-lang("menuWiki","#mod-menu-wiki");
-lang( "start","#mod-clock__digit");
-lang( "startHint","#mod-clock__status");
-lang( "frequencyUnit","#mod-chart__mark_x");
-lang( "duration","#mod-chart__mark_y");
-lang( "averageTitle","#mod-average__title");
-lang( "time","#mod-average__time");
-lang( "averageDuration","#mod-average__duration");
-lang( "averageFrequency","#mod-average__frequency");
-lang( "close","#mod-readme-close");
-lang( "readmeColor","#mod-readme-color");
-lang( "readmeColorDetail","#mod-readme-color-detail");
-lang( "readmeUnit","#mod-readme-unit");
-lang( "readmeUnitDetail","#mod-readme-unit-detail");
-lang( "readmeUsage","#mod-readme-usage");
-lang( "readmeUsageDetail","#mod-readme-usage-detail");
-
+lang("title", "#mod-top-bar__title");
+lang("menuReadme", "#mod-menu-readme");
+lang("menuFeedback", "#mod-menu-feedback");
+lang("menuWiki", "#mod-menu-wiki");
+lang("start", "#mod-clock__digit");
+lang("startHint", "#mod-clock__status");
+lang("frequencyUnit", "#mod-chart__mark_x");
+lang("duration", "#mod-chart__mark_y");
+lang("averageTitle", "#mod-average__title");
+lang("time", "#mod-average__time");
+lang("averageDuration", "#mod-average__duration");
+lang("averageFrequency", "#mod-average__frequency");
+lang("close", "#mod-readme-close");
+lang("readmeColor", "#mod-readme-color");
+lang("readmeColorDetail", "#mod-readme-color-detail");
+lang("readmeUnit", "#mod-readme-unit");
+lang("readmeUnitDetail", "#mod-readme-unit-detail");
+lang("readmeUsage", "#mod-readme-usage");
+lang("readmeUsageDetail", "#mod-readme-usage-detail");
 
 
 //init layout
@@ -84,6 +85,10 @@ function addZero(num) {
 }
 
 function initLayout() {
+	if (isGingerbread) {/*android 2.3 fucked*/
+		$("body").addClass("isGingerbread");
+		console.log("isGingerbread");
+	}
 	$("#mod-menu-feedback").click(function () {
 		window.location.href = "mailto:i@bigc.at";
 	});
@@ -100,8 +105,9 @@ function initLayout() {
 		localStorage.ucReadme = 1;
 	}
 	if (localStorage.hasOwnProperty("ucCountStatus") && localStorage.ucCountStatus == 1) {
-		ucStartTime = new Date(parseInt(localStorage.ucStartTime));
+		ucStartTime = +new Date(parseInt(localStorage.ucStartTime));/* + calls valueOf() */
 		ucCountStart(ucStartTime);
+		console.log("resume from localStorage");
 	} else {
 		localStorage.ucCountStatus = 0;
 	}
@@ -151,12 +157,14 @@ function createLocalUc(startTime, stopTime) {
 	if (lastTimeGap === false) {
 		return
 	}
+	
 	var newUc = {
 		"startTime" : startTime,
 		"stopTime"  : stopTime,
 		"timeLength": timeLength,
 		"timeGap"   : lastTimeGap
 	};
+	console.log("newUc",newUc);
 	data.unshift(newUc);
 	setData(data);
 	upDate();
@@ -326,9 +334,17 @@ function ucCount() {
 }
 function setClock(sec) {
 	var min = parseInt(sec / 60);
+	if(min>5){
+		ucCountStop();
+		setMsg(lang("moreThan5min"));
+	}
 	var sec = sec % 60;
 	$(".mod-clock__sec").eq(sec).addClass("mod-clock__sec_current");
-	$(".mod-clock__sec").eq(sec - 3).removeClass("mod-clock__sec_current");
+	if(isGingerbread){
+		$(".mod-clock__sec").eq(sec - 1).removeClass("mod-clock__sec_current");
+	}else{
+		$(".mod-clock__sec").eq(sec - 3).removeClass("mod-clock__sec_current");
+	}
 	if (min) {
 		$("#mod-clock__digit").html('<span class="mod-clock__num">' + min + '</span><span class="ui-color_white-alpha-alpha ui-font-size_medium">m</span> ' + '<span class="mod-clock__num">' + sec + '</span><span class="ui-color_white-alpha-alpha ui-font-size_medium">s</span>')
 	} else {
@@ -424,7 +440,7 @@ function updateChart() {
 		var modChartItem = $('<div><div class="mod-chart__gap ui-font-size_x-small">' + parseInt(arrAverageData[i].timeGap / 60) + '</div></div>');
 		modChartItem.attr({
 			"class": "mod-chart__item",//SyntaxError: Parse error android 2.3
-			style: "height:" + heightPercents + "%;left:" + cssLeftPercents + "%"
+			style  : "height:" + heightPercents + "%;left:" + cssLeftPercents + "%"
 		});
 		if (arrAverageData[i].timeGap / 60 < 6 && arrAverageData[i].timeGap != 0) {
 			modChartItem.addClass("mod-chart__item_alarm");
@@ -485,4 +501,5 @@ function getReadMe() {
 function hideReadMe() {
 	$('.mod-readme').hide();
 }
+document.addEventListener("menubutton", toggleMenu, false);
 initLayout();

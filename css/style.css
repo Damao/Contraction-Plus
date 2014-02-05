@@ -121,9 +121,10 @@ a {
 }
 .mod-menu {
   width: 155px;
-  position: absolute;
+  position: fixed;
   z-index: 200;
-  left: -156px;
+  -webkit-transform: translateX(-156px);
+  left: 0;
   top: 40px;
   background: rgba(255, 255, 255, 0.1);
   border-right: 1px solid rgba(255, 255, 255, 0.5);
@@ -134,6 +135,11 @@ a {
   text-align: left;
   font-size: 16px;
   display: block;
+}
+.isGingerbread .mod-menu {
+  display: none;
+  -webkit-transform: default;
+  position: absolute;
 }
 .mod-mask {
   position: fixed;
@@ -146,7 +152,11 @@ a {
   background: rgba(0, 0, 0, 0.5);
 }
 .hasMenu .mod-menu {
-  left: 0;
+  -webkit-transform: translateX(0);
+}
+.hasMenu.isGingerbread .mod-menu {
+  display: block;
+  -webkit-transform: default;
 }
 .hasMenu .mod-top-bar__left {
   background-position: -5px center;
@@ -245,6 +255,10 @@ a {
   transform-origin: 0 120px;
   -webkit-transition: all 2s ease-in;
   transition: all 2s ease-in;
+}
+.isGingerbread .mod-clock__sec {
+  -webkit-transition: initial;
+  transition: initial;
 }
 .mod-clock__sec_quarter {
   height: 15px;

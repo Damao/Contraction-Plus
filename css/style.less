@@ -155,9 +155,10 @@ a {
 
 .mod-menu {
   width              : 155px;
-  position           : absolute;
+  position           : fixed;
   z-index            : 200;
-  left               : -156px;
+  -webkit-transform  : translateX(-156px);
+  left               : 0;
   top                : 40px;
   background         : rgba(255, 255, 255, .1);
   border-right       : 1px solid @colorWhiteAlpha;
@@ -170,6 +171,12 @@ a {
   }
 }
 
+.isGingerbread .mod-menu {
+  display           : none;
+  -webkit-transform : default;
+  position          : absolute;
+}
+
 .mod-mask {
   position   : fixed;
   display    : none;
@@ -178,12 +185,16 @@ a {
   right      : 0;
   bottom     : 0;
   z-index    : 100;
-  background : rgba(0, 0, 0, .5)
+  background : rgba(0, 0, 0, .5);
 }
 
 .hasMenu {
   & .mod-menu {
-    left : 0;
+    -webkit-transform : translateX(0);
+  }
+  &.isGingerbread .mod-menu {
+    display           : block;
+    -webkit-transform : default;
   }
   & .mod-top-bar__left {
     background-position : -5px center;
@@ -216,7 +227,7 @@ a {
     background-color : @colorWhite;
   }
   &_active &__sec_current {
-    height : 20px;
+    height     : 20px;
   }
   &_active &__digit {
     color : #FFF;
@@ -296,6 +307,11 @@ a {
   transform-origin         : 0 120px;
   -webkit-transition       : all 2s ease-in;
   transition               : all 2s ease-in;
+}
+
+.isGingerbread .mod-clock__sec {
+  -webkit-transition : initial;
+  transition         : initial;
 }
 
 .mod-clock__sec_quarter {
