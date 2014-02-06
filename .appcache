@@ -1,14 +1,14 @@
 CACHE MANIFEST
-# 2014-2-5v2
+# 2014-2-5v3
 
 # Explicitly cached 'master entries'.
 CACHE:
 index.html
-js/script.js?v1.7
-js/i18n.js
-css/style.css?v1.7
+js/script.js?v1.7.0
+js/i18n.js?v1.7.0
+css/style.css?v1.7.0
 js/appframework.min.js
-img/background.jpg
+img/background.jpg?v1.7.0
 img/icon-menu.png
 img/NettoOT-Light.otf
 img/6_timer_clock_time-64.png
